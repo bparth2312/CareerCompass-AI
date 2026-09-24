@@ -1,0 +1,30 @@
+:root {
+  /* Colors */
+  --primary: #6366f1;
+  --secondary: #8b5cf6;
+  --accent: #06b6d4;
+
+  --background: #0b1120;
+  --surface: #111827;
+  --surface-light: #1f2937;
+
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  --border: rgba(255, 255, 255, 0.08);
+
+  --shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+
+  --glass: rgba(255, 255, 255, 0.05);
+
+  --gradient: linear-gradient(
+    135deg,
+    #6366f1 0%,
+    #8b5cf6 50%,
+    #06b6d4 100%
+  );
+}

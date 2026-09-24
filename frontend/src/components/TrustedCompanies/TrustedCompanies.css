@@ -1,0 +1,403 @@
+/* =========================================================
+   TRUSTED COMPANIES
+========================================================= */
+
+.trusted {
+  position: relative;
+  overflow: hidden;
+
+  padding: 85px 0;
+
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--surface) 0%,
+      var(--surface-soft) 100%
+    );
+}
+
+.trusted::before {
+  content: "";
+
+  position: absolute;
+  top: -180px;
+  left: 50%;
+
+  width: 500px;
+  height: 300px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(20, 184, 166, 0.1);
+
+  filter: blur(110px);
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+}
+
+.trusted-container {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.trusted-header {
+  max-width: 780px;
+
+  margin: 0 auto 48px;
+
+  text-align: center;
+}
+
+.trusted-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 15px;
+
+  border: 1px solid
+    rgba(15, 118, 110, 0.18);
+
+  border-radius: 999px;
+
+  background:
+    var(--primary-soft);
+
+  color:
+    var(--primary);
+
+  font-size: 0.78rem;
+  font-weight: 750;
+
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.trusted-heading {
+  margin: 18px 0 0;
+
+  color:
+    var(--text-primary);
+
+  font-size:
+    clamp(2rem, 3.5vw, 3rem);
+
+  font-weight: 760;
+  line-height: 1.15;
+
+  letter-spacing: -0.04em;
+}
+
+.trusted-text {
+  max-width: 680px;
+
+  margin: 18px auto 0;
+
+  color:
+    var(--text-secondary);
+
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   LOGO SLIDER
+========================================================= */
+
+.logo-slider {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  padding: 8px 0 14px;
+}
+
+.logo-track {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  width: max-content;
+
+  animation:
+    trusted-scroll 34s linear infinite;
+
+  will-change: transform;
+}
+
+.logo-slider:hover .logo-track {
+  animation-play-state: paused;
+}
+
+
+/* =========================================================
+   FADE EDGES
+========================================================= */
+
+.logo-slider-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+
+  width: 110px;
+
+  pointer-events: none;
+}
+
+.logo-slider-fade-left {
+  left: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--surface-soft),
+      transparent
+    );
+}
+
+.logo-slider-fade-right {
+  right: 0;
+
+  background:
+    linear-gradient(
+      -90deg,
+      var(--surface-soft),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   LOGO CARDS
+========================================================= */
+
+.logo-card {
+  display: flex;
+  width: 165px;
+  height: 92px;
+
+  flex-shrink: 0;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 18px;
+
+  border: 1px solid
+    var(--border);
+
+  border-radius: 18px;
+
+  background:
+    var(--surface);
+
+  box-shadow:
+    var(--shadow-sm);
+
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    background-color 200ms ease;
+}
+
+.logo-card:hover{
+    transform:translateY(-6px);
+
+    border-color:#14b8a6;
+
+    box-shadow:
+        0 18px 40px rgba(20,184,166,.18);
+}
+
+.logo-card img {
+  width: 112px;
+  height: 48px;
+
+  object-fit: contain;
+
+  filter: none;
+
+  opacity: 1;
+
+  transition:
+    transform .25s ease;
+}
+
+.logo-card:hover img {
+  transform: scale(1.08);
+}
+
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.trusted-note {
+  margin: 22px 0 0;
+
+  color:
+    var(--text-muted);
+
+  font-size: 0.76rem;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+.dark .trusted {
+  background:
+    linear-gradient(
+      180deg,
+      var(--background) 0%,
+      var(--surface-soft) 100%
+    );
+}
+
+.dark .logo-card{
+
+    background:#ffffff;
+
+    border:1px solid rgba(255,255,255,.12);
+
+}
+
+.dark .logo-card:hover {
+  border-color:
+    rgba(45, 212, 191, 0.4);
+
+  background:
+    rgba(255, 255, 255, 0.05);
+}
+
+.dark .logo-card img{
+    filter:none;
+    opacity:1;
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes trusted-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(
+      calc(-50% - 10px)
+    );
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+  .trusted {
+    padding: 70px 0;
+  }
+
+  .trusted-header {
+    margin-bottom: 38px;
+  }
+
+  .logo-card{
+    background:white;
+    border:1px solid #e2e8f0;
+
+    box-shadow:
+        0 8px 24px rgba(15,23,42,.08);
+
+    transition:.3s;
+  }
+
+  .logo-card img {
+    width: 96px;
+    height: 42px;
+  }
+
+  .logo-slider-fade {
+    width: 65px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .trusted {
+    padding: 58px 0;
+  }
+
+  .trusted-header {
+    padding-inline: 10px;
+  }
+
+  .trusted-heading {
+    font-size: 2rem;
+  }
+
+  .trusted-text {
+    font-size: 0.94rem;
+    line-height: 1.65;
+  }
+
+  .logo-track {
+    gap: 14px;
+
+    animation-duration: 28s;
+  }
+
+  .logo-card {
+    width: 128px;
+    height: 72px;
+
+    border-radius: 15px;
+  }
+
+  .logo-card img {
+    width: 86px;
+    height: 36px;
+  }
+
+  .logo-slider-fade {
+    width: 35px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-track {
+    animation: none;
+  }
+
+  .logo-slider {
+    overflow-x: auto;
+  }
+}

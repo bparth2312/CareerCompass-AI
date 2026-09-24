@@ -1,0 +1,290 @@
+/* =========================================================
+   PROJECT HIGHLIGHTS
+========================================================= */
+
+.statistics {
+  position: relative;
+  overflow: hidden;
+
+  padding: 95px 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--background) 0%,
+      var(--surface-soft) 100%
+    );
+}
+
+.statistics::before {
+  content: "";
+
+  position: absolute;
+  right: -160px;
+  bottom: -180px;
+
+  width: 430px;
+  height: 430px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(20, 184, 166, 0.08);
+
+  filter: blur(120px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.statistics-header {
+  position: relative;
+  z-index: 1;
+
+  max-width: 760px;
+
+  margin: 0 auto 52px;
+
+  text-align: center;
+}
+
+.statistics-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 16px;
+
+  border: 1px solid
+    rgba(15, 118, 110, 0.18);
+
+  border-radius: 999px;
+
+  background:
+    var(--primary-soft);
+
+  color:
+    var(--primary);
+
+  font-size: 0.78rem;
+  font-weight: 750;
+
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.statistics-header h2 {
+  margin: 18px 0 0;
+
+  color:
+    var(--text-primary);
+
+  font-size:
+    clamp(2rem, 3.7vw, 3.1rem);
+
+  font-weight: 760;
+  line-height: 1.15;
+
+  letter-spacing: -0.04em;
+}
+
+.statistics-header p {
+  max-width: 680px;
+
+  margin: 18px auto 0;
+
+  color:
+    var(--text-secondary);
+
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.statistics-grid {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 22px;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.statistics-card {
+  min-height: 280px;
+
+  padding: 28px;
+
+  border: 1px solid
+    var(--border);
+
+  border-radius: 22px;
+
+  background:
+    var(--surface);
+
+  box-shadow:
+    var(--shadow-sm);
+
+  text-align: center;
+
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.statistics-card:hover {
+  transform: translateY(-7px);
+
+  border-color:
+    rgba(15, 118, 110, 0.42);
+
+  box-shadow:
+    var(--shadow-md);
+}
+
+.statistics-icon {
+  display: flex;
+
+  width: 58px;
+  height: 58px;
+
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto;
+
+  border-radius: 18px;
+
+  background:
+    var(--primary-soft);
+
+  color:
+    var(--primary);
+
+  font-size: 24px;
+}
+
+.statistics-value {
+  margin: 24px 0 0;
+
+  color:
+    var(--primary);
+
+  font-size: 2.8rem;
+  font-weight: 800;
+
+  line-height: 1;
+}
+
+.statistics-card h3 {
+  margin: 14px 0 0;
+
+  color:
+    var(--text-primary);
+
+  font-size: 1.15rem;
+  font-weight: 720;
+}
+
+.statistics-description {
+  margin: 12px 0 0;
+
+  color:
+    var(--text-secondary);
+
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+.dark .statistics {
+  background:
+    linear-gradient(
+      180deg,
+      var(--background) 0%,
+      var(--surface-soft) 100%
+    );
+}
+
+.dark .statistics-card {
+  background:
+    var(--surface);
+}
+
+.dark .statistics-card:hover {
+  border-color:
+    rgba(45, 212, 191, 0.4);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+  .statistics-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .statistics {
+    padding: 72px 0;
+  }
+
+  .statistics-header {
+    margin-bottom: 40px;
+  }
+
+  .statistics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .statistics-card {
+    min-height: auto;
+
+    padding: 25px;
+  }
+}
+
+@media (max-width: 460px) {
+  .statistics {
+    padding: 60px 0;
+  }
+
+  .statistics-header h2 {
+    font-size: 2rem;
+  }
+
+  .statistics-header p {
+    font-size: 0.94rem;
+    line-height: 1.65;
+  }
+
+  .statistics-value {
+    font-size: 2.4rem;
+  }
+}

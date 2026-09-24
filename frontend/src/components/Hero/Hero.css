@@ -1,0 +1,891 @@
+/* =========================================================
+   HERO SECTION
+========================================================= */
+
+.hero {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+
+  min-height: calc(100vh - 78px);
+
+  overflow: hidden;
+
+  padding: 105px 0 45px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--background) 0%,
+      var(--surface-soft) 100%
+    );
+}
+
+.hero-background-grid {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.16;
+
+  background-image:
+    linear-gradient(
+      var(--border) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      var(--border) 1px,
+      transparent 1px
+    );
+
+  background-size: 48px 48px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 90%
+    );
+}
+
+.hero-glow {
+  position: absolute;
+
+  border-radius: 999px;
+
+  pointer-events: none;
+
+  filter: blur(120px);
+}
+
+.hero-glow-one {
+  top: -150px;
+  right: -100px;
+
+  width: 460px;
+  height: 460px;
+
+  background:
+    rgba(20, 184, 166, 0.2);
+}
+
+.hero-glow-two {
+  bottom: -220px;
+  left: -140px;
+
+  width: 420px;
+  height: 420px;
+
+  background:
+    rgba(245, 158, 11, 0.1);
+}
+
+
+/* =========================================================
+   HERO LAYOUT
+========================================================= */
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.08fr)
+    minmax(350px, 0.78fr);
+
+  align-items: start;
+
+  gap: 70px;
+}
+
+.hero-left {
+  min-width: 0;
+
+  /*
+    Moves the complete left section slightly upward
+    and slightly toward the right.
+  */
+  padding-top: 10px;
+  padding-left: 55px;
+}
+
+.hero-right {
+  display: flex;
+  justify-content: center;
+
+  min-width: 0;
+
+  /*
+    Keeps the smaller analysis card near the top.
+  */
+  padding-top: 0;
+}
+
+
+/* =========================================================
+   HERO TEXT
+========================================================= */
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 24px;
+  padding: 9px 17px;
+
+  border: 1px solid
+    rgba(15, 118, 110, 0.2);
+
+  border-radius: 999px;
+
+  background:
+    var(--primary-soft);
+
+  color:
+    var(--primary);
+
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.hero-left h1 {
+  max-width: 720px;
+
+  margin: 0;
+
+  color:
+    var(--text-primary);
+
+  font-size:
+    clamp(2.8rem, 4vw, 4.35rem);
+
+  font-weight: 760;
+
+  line-height: 1.07;
+
+  letter-spacing: -0.05em;
+}
+
+.hero-left h1 span {
+  color:
+    var(--primary);
+}
+
+.hero-description {
+  max-width: 650px;
+
+  margin: 26px 0 0;
+
+  color:
+    var(--text-secondary);
+
+  font-size: 1rem;
+
+  line-height: 1.75;
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+
+  margin-top: 30px;
+}
+
+.primary-btn {
+  display: inline-flex;
+
+  min-height: 50px;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 13px 24px;
+
+  border: none;
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      #14b8a6
+    );
+
+  color: #ffffff;
+
+  font-size: 0.96rem;
+  font-weight: 700;
+
+  box-shadow:
+    0 12px 28px
+    rgba(15, 118, 110, 0.22);
+
+  cursor: pointer;
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 17px 35px
+    rgba(15, 118, 110, 0.3);
+
+  filter: brightness(1.03);
+}
+
+.primary-btn svg {
+  transition:
+    transform 180ms ease;
+}
+
+.primary-btn:hover svg {
+  transform:
+    translateX(4px);
+}
+
+
+/* =========================================================
+   HERO STATISTICS
+========================================================= */
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 14px;
+
+  margin-top: 40px;
+}
+
+.hero-stat-item {
+  min-width: 122px;
+
+  padding: 13px 17px;
+
+  border: 1px solid
+    var(--border);
+
+  border-radius: 16px;
+
+  background:
+    var(--surface);
+
+  box-shadow:
+    var(--shadow-sm);
+}
+
+.hero-stat-item h2 {
+  margin: 0;
+
+  color:
+    var(--text-primary);
+
+  font-size: 1.5rem;
+  font-weight: 760;
+}
+
+.hero-stat-item span {
+  display: block;
+
+  margin-top: 4px;
+
+  color:
+    var(--text-secondary);
+
+  font-size: 0.84rem;
+}
+
+
+/* =========================================================
+   DASHBOARD CARD
+========================================================= */
+
+.dashboard-card-wrapper {
+  position: relative;
+
+  width: min(100%, 405px);
+}
+
+.dashboard-card-glow {
+  position: absolute;
+  inset: 11%;
+
+  border-radius: 35px;
+
+  background:
+    rgba(15, 118, 110, 0.26);
+
+  filter: blur(50px);
+
+  opacity: 0.6;
+}
+
+.dashboard-card {
+  position: relative;
+
+  width: 100%;
+
+  padding: 22px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.09);
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      155deg,
+      #172033,
+      #0f172a
+    );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 24px 55px
+    rgba(15, 23, 42, 0.25);
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+
+  margin-bottom: 20px;
+}
+
+.dashboard-label {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #94a3b8;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dashboard-header h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 1.45rem;
+  font-weight: 720;
+}
+
+.verified-wrapper {
+  display: flex;
+
+  width: 40px;
+  height: 40px;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background:
+    rgba(34, 197, 94, 0.14);
+}
+
+.verified {
+  color: #4ade80;
+
+  font-size: 22px;
+}
+
+
+/* =========================================================
+   ATS PROGRESS
+========================================================= */
+
+.ats-progress-section {
+  margin-bottom: 18px;
+
+  padding: 15px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 16px;
+
+  background:
+    rgba(255, 255, 255, 0.04);
+}
+
+.ats-progress-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: #cbd5e1;
+
+  font-size: 0.9rem;
+}
+
+.ats-progress-heading strong {
+  color: #ffffff;
+
+  font-size: 1.08rem;
+}
+
+.ats-progress-track {
+  height: 8px;
+
+  margin-top: 11px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.1);
+}
+
+.ats-progress-value {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #14b8a6,
+      #5eead4
+    );
+}
+
+
+/* =========================================================
+   ANALYSIS DETAILS
+========================================================= */
+
+.analysis {
+  display: grid;
+
+  gap: 5px;
+}
+
+.analysis-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+
+  padding: 10px 4px;
+
+  border-bottom: 1px solid
+    rgba(255, 255, 255, 0.07);
+
+  color: #cbd5e1;
+
+  font-size: 0.9rem;
+}
+
+.analysis-row:last-child {
+  border-bottom: 0;
+}
+
+.analysis-row strong {
+  color: #ffffff;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   MINI CARDS
+========================================================= */
+
+.dashboard-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 11px;
+
+  margin-top: 18px;
+}
+
+.mini-card {
+  display: flex;
+
+  min-width: 0;
+
+  flex-direction: column;
+  align-items: center;
+
+  padding: 13px 7px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 15px;
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
+  text-align: center;
+
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.mini-card:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(94, 234, 212, 0.3);
+
+  background:
+    rgba(255, 255, 255, 0.075);
+}
+
+.mini-card-icon {
+  display: flex;
+
+  width: 32px;
+  height: 32px;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 8px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(20, 184, 166, 0.15);
+
+  color: #5eead4;
+
+  font-size: 16px;
+}
+
+.mini-card h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 1rem;
+}
+
+.mini-card span {
+  margin-top: 4px;
+
+  color: #94a3b8;
+
+  font-size: 0.7rem;
+}
+
+
+/* =========================================================
+   UPLOAD BUTTON
+========================================================= */
+
+.resume-upload-btn {
+  display: flex;
+
+  width: 100%;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  margin-top: 18px;
+
+  padding: 11px 16px;
+
+  border: none;
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0f766e,
+      #14b8a6
+    );
+
+  color: #ffffff;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.resume-upload-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 26px
+    rgba(20, 184, 166, 0.27);
+}
+
+.resume-upload-btn svg {
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+.dark .hero {
+  background:
+    linear-gradient(
+      135deg,
+      #08111f,
+      #0f1b2d
+    );
+}
+
+.dark .hero-stat-item {
+  border-color:
+    var(--border);
+
+  background:
+    var(--surface);
+}
+
+
+/* =========================================================
+   LAPTOP SCREENS
+========================================================= */
+
+@media (max-height: 850px) and (min-width: 951px) {
+  .hero {
+    min-height: auto;
+
+    padding:
+      92px 0 32px;
+  }
+
+  .hero-left {
+    padding-top: 0;
+  }
+
+  .hero-left h1 {
+    font-size:
+      clamp(2.5rem, 3.7vw, 3.9rem);
+  }
+
+  .hero-description {
+    margin-top: 20px;
+
+    line-height: 1.6;
+  }
+
+  .hero-buttons {
+    margin-top: 24px;
+  }
+
+  .hero-stats {
+    margin-top: 28px;
+  }
+
+  .dashboard-card-wrapper {
+    width: min(100%, 380px);
+  }
+
+  .dashboard-card {
+    padding: 19px;
+  }
+
+  .dashboard-header {
+    margin-bottom: 15px;
+  }
+
+  .ats-progress-section {
+    margin-bottom: 13px;
+    padding: 12px;
+  }
+
+  .analysis-row {
+    padding: 8px 3px;
+  }
+
+  .dashboard-grid {
+    margin-top: 13px;
+  }
+
+  .resume-upload-btn {
+    margin-top: 14px;
+    padding: 10px 14px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+  .hero-container {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(330px, 0.78fr);
+
+    gap: 42px;
+  }
+
+  .hero-left {
+    padding-left: 25px;
+  }
+}
+
+
+@media (max-width: 950px) {
+  .hero {
+    min-height: auto;
+
+    padding:
+      115px 0 60px;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+
+  .hero-left {
+    padding: 0 20px;
+
+    text-align: center;
+  }
+
+  .hero-left h1,
+  .hero-description {
+    margin-inline: auto;
+  }
+
+  .hero-buttons,
+  .hero-stats {
+    justify-content: center;
+  }
+
+  .dashboard-card-wrapper {
+    width: min(100%, 430px);
+  }
+}
+
+
+@media (max-width: 620px) {
+  .hero {
+    padding:
+      100px 0 48px;
+  }
+
+  .hero-left {
+    padding-inline: 10px;
+  }
+
+  .hero-left h1 {
+    font-size:
+      clamp(2.4rem, 12vw, 3.4rem);
+  }
+
+  .hero-description {
+    font-size: 0.96rem;
+
+    line-height: 1.65;
+  }
+
+  .hero-stats {
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+    width: 100%;
+
+    gap: 9px;
+  }
+
+  .hero-stat-item {
+    min-width: 0;
+
+    padding: 12px 7px;
+  }
+
+  .hero-stat-item h2 {
+    font-size: 1.3rem;
+  }
+
+  .hero-stat-item span {
+    font-size: 0.72rem;
+  }
+
+  .dashboard-card {
+    padding: 20px;
+  }
+
+  .dashboard-header h2 {
+    font-size: 1.35rem;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mini-card {
+    flex-direction: row;
+    justify-content: flex-start;
+
+    gap: 11px;
+
+    text-align: left;
+  }
+
+  .mini-card-icon {
+    margin-bottom: 0;
+  }
+
+  .mini-card h3 {
+    margin-left: auto;
+  }
+}
+
+
+@media (max-width: 420px) {
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stat-item {
+    text-align: center;
+  }
+
+  .dashboard-card {
+    border-radius: 20px;
+  }
+}
